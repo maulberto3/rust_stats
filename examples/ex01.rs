@@ -5,6 +5,7 @@ use serde::Deserialize;
 use std::io::Read;
 
 #[derive(Deserialize)]
+#[allow(dead_code)]
 struct SalaryRecord {
     work_year: i32,
     experience_level: String,
