@@ -10,8 +10,9 @@ async fn fetch_data() -> Result<Vec<f32>> {
     let mut reader = ReaderBuilder::new().from_reader(response.as_bytes());
     let mut salaries = Vec::new();
 
-    for result in reader.records() {
+    for (i, result) in reader.records().enumerate() {
         let record = result?;
+        if i == 0 { dbg!(&record); }
         let salary: f32 = record.get(0).unwrap().parse().unwrap();
         salaries.push(salary)
     }
