@@ -36,4 +36,6 @@ fn main() {
     let prob = calc_normal_prob(1.25, 0.2, 0.9).unwrap();
     println!("Prob of children height at 0.90 meters or less: {}", prob);
 
+    println!("Should have gone separate push, as it went with ex06...")
+
 }
