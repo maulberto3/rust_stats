@@ -6,13 +6,7 @@ use anyhow::Result;
 // use std::collections::{HashMap, HashSet};
 // use std::io::Read;
 // use std::vec;
-use statrs::distribution::{Bernoulli, Binomial, Continuous, Discrete, DiscreteCDF, Uniform};
-
-fn calc_unif_prob(min: f64, max: f64, x: f64) -> Result<f64> {
-    let unif = Uniform::new(min, max).unwrap();
-    let prob = unif.pdf(x);
-    Ok(prob)
-}
+use statrs::distribution::{Bernoulli, Binomial, Discrete, DiscreteCDF};
 
 fn calc_bern_prob(p: f64) -> Result<f64> {
     let bern = Bernoulli::new(p).unwrap();
@@ -33,9 +27,6 @@ fn calc_binom_prob_less(p: f64, n: u64, x: u64) -> Result<f64> {
 }
 
 fn main() {
-    let prob = calc_unif_prob(1.0, 6.0, 3.0).unwrap();
-    println!("Probability of '3' of a fair dice: {}", prob);
-
     let prob = calc_bern_prob(0.6).unwrap();
     println!("Probability of P(X = 1) given p = 0.6: {}", prob);
     
